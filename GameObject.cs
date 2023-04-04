@@ -12,17 +12,13 @@ namespace PlatformerGame
         // Objects of the same class can share the spritebatch.
         public static SpriteBatch spriteBatch;
 
-        protected void Initialze()
-        {
-            if(spriteBatch == null)
-            {
-                spriteBatch = new SpriteBatch(Game.GraphicsDevice);
-            }
-        }
-
         public GameObject(Game game) : base(game)
         {
             // Add more to the constructor.
+            if (spriteBatch is null)
+            {
+                spriteBatch = new SpriteBatch(Game.GraphicsDevice);
+            }
             game.Components.Add(this); // This allows the game to call Update and Draw automatically.
         }
 
